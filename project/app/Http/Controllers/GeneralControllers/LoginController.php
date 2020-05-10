@@ -8,8 +8,12 @@ use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
 {
-    public function index(){
-        return view('generalViews.login');
+    public function index(Request $request){
+		if($request->session()->has('user_id')){
+			return redirect('/home');
+		}else{
+			return view('generalViews.login');
+		}
     }
 
     public function verify(Request $request){
@@ -21,10 +25,13 @@ class LoginController extends Controller
 
         if($user != null){
             $userData = json_encode($user->user_id);
+            $userMail = json_encode($user->email);
             $request->session()->put('user_id', $userData);
+            $request->session()->put('mail', $userMail);
             return redirect()->route('home.index');
         }
         else{
+			$request->session()->put('msg', 'Invalid Username/Password');
             return redirect('/');
         }
         
