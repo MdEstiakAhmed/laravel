@@ -6,13 +6,14 @@
         <title>Login-Laravel</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="{{ asset('css/generalCSS/login.css') }}">
+		<script src="{{ asset('js/myScript.js') }}"></script>
     </head>
     <body>
         <!-- navbar section start -->
         <section class="navbar">
             <div class="container">
                 <nav class="navbar navbar-expand-lg">
-                    <a class="navbar-brand" href="#"></a>
+                    <a class="navbar-brand brand-link" href="/">Express</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -23,7 +24,7 @@
                                 <a class="nav-link about-link" href="#">ABOUT</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link signup-link" href="#">SIGNUP</a>
+                                <a class="nav-link signup-link" href="/register">SIGNUP</a>
                             </li>
                         </ul>
                     </div>
@@ -31,14 +32,17 @@
             </div>
         </section>
         <!-- navbar section end -->
-
-        <!-- login section start -->
+		@if(session()->has('msg'))
+			<script>Notify('{{session()->get('msg')}}')</script>
+				{{session()->forget('msg')}}
+		@endif
+		<!-- login section start -->
         <section class="login">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-6">
                         <div class="login-content">
-                            <h1>make your connection</h1>
+                            <h1>Log in to your account</h1>
                             <p>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo aliquam perspiciatis maxime quibusdam aspernatur suscipit corrupti reprehenderit officiis, eligendi ea placeat dicta ducimus ipsum cum magnam consectetur quo enim eum.
                             </p>
