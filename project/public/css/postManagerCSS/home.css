@@ -53,6 +53,10 @@
 .post-type{
     font-size: 15px;
     font-weight: 500;
+    background-color: #50ce85;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
 }
 
 .post-time{
@@ -65,3 +69,14 @@
     font-size: 25px;
 }
 /* all post design end */
+
+/* pending post design start */
+.post-status{
+    font-size: 15px;
+    font-weight: 500;
+    background-color: #c75353;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+}
+/* pending post design start */

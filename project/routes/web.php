@@ -15,6 +15,7 @@ Route::group(['middleware'=>['IdentityVerifier']], function(){
 	//post manager routes
 	Route::get('/home/postManager', 'PostManagerControllers\PostManagerHomeController@index')->name('postManagerHome.index');
 	Route::get('/home/postManager/allPost', 'PostManagerControllers\PostManagerHomeController@allPost')->name('postManagerHome.allPost');
+	Route::get('/home/postManager/pendingPost', 'PostManagerControllers\PostManagerHomeController@pendingPost')->name('postManagerHome.pendingPost');
 });
 
 Route::group(['middleware'=>['sessionVerify']], function(){});
