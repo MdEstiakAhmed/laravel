@@ -79,4 +79,17 @@
     border-radius: 5px;
     color: white;
 }
+
+.post-control{
+    font-size: 20px;
+    color: white;
+    border-radius: 5px;
+    padding: 3px 10px;
+}
+
+.post-control:hover{
+    color: black;
+    text-decoration: none;
+}
+
 /* pending post design start */
