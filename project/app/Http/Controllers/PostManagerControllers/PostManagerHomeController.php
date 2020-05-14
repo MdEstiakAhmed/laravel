@@ -15,7 +15,7 @@ class PostManagerHomeController extends Controller
                         ->where('user_id', $request->session()->get('user_id'))
                         ->first();
 
-            return view('postManagerViews.home', ['user' => $user]);
+            return view('postManagerViews.homeContent', ['user' => $user]);
         }
         else{
             return redirect('/');
