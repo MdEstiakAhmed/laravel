@@ -1,3 +1,4 @@
+/* master content design start */
 .font-size{
     font-size: 20px;
 }
@@ -31,3 +32,36 @@
     font-size: 28px; /* Increased text to enable scrolling */
     padding: 0px 10px;
 }
+/* master content design end */
+
+
+/* all post design start */
+.post-area{
+    background-color: rgb(214, 214, 214);
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.user-name{
+    margin-bottom: 0;
+    font-size: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.post-type{
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.post-time{
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.post-text{
+    margin-bottom: 0;
+    font-size: 25px;
+}
+/* all post design end */

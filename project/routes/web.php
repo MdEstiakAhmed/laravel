@@ -12,5 +12,9 @@ Route::group(['middleware'=>['IdentityVerifier']], function(){
 	
 	Route::get('/home', 'GeneralControllers\GeneralHomeController@index')->name('home.index');
 
+	//post manager routes
 	Route::get('/home/postManager', 'PostManagerControllers\PostManagerHomeController@index')->name('postManagerHome.index');
+	Route::get('/home/postManager/allPost', 'PostManagerControllers\PostManagerHomeController@allPost')->name('postManagerHome.allPost');
 });
+
+Route::group(['middleware'=>['sessionVerify']], function(){});

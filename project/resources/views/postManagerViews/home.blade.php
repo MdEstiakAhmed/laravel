@@ -17,9 +17,6 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link  font-size" href="#">{{$user->user_id}}</a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link  font-size" href="/logout">logout</a>
                 </li>
@@ -30,10 +27,10 @@
 
     <!-- side menu bar start -->
     <div class="sidenav">
-        <a href="#">Home</a>
+        <a href="{{route('postManagerHome.index')}}">Home</a>
         <a href="#">Profile</a>
-        <a href="#">All Post</a>
-        <a href="#">Pending Post</a>
+        <a href="{{route('postManagerHome.allPost')}}">All Post</a>
+        <a href="{{route('postManagerHome.pendingPost')}}">Pending Post</a>
         <a href="/logout">logout</a>
       </div>
     <!-- side menu bar end -->
