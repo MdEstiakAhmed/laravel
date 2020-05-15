@@ -1,3 +1,7 @@
-$(document).ready(function(){
-  $('.post-approve').delay(1000).fadeOut();
+$(document).ready(function () {
+    if( $('.post-approve').is(':visible') ){
+        $(".post-approve").fadeOut(2000);
+        console.log("ok");
+    }
+        
 });

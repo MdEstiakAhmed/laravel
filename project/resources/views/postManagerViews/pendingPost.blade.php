@@ -1,11 +1,11 @@
 @extends('postManagerViews.home')
 @section('content')
-    @if(Request()->session()->has('post_approve'))
+    @if(Request()->session()->has('post_status_change'))
         <div class="alert alert-success post-approve" role="alert">
-            successfully approved post no: {{Request()->session()->get('post_approve')}}
+            {{Request()->session()->get('post_status_change')}}
         </div>
         @php
-            Request()->session()->forget('post_approve');
+            Request()->session()->forget('post_status_change');
         @endphp
     @endif
 
@@ -22,7 +22,7 @@
             @endif
             <div>
                 <a href="{{route('PostStatus.postApprove', $post->post_id)}}" class="post-control bg-success">approve</a>
-                <a href="#" class="post-control bg-danger">delete</a>
+                <a href="{{route('PostStatus.posDelete', $post->post_id)}}" class="post-control bg-danger">delete</a>
                 <a href="#" class="post-control bg-warning">warning</a>
                 <a href="#" class="post-control bg-info">block</a>
             </div>

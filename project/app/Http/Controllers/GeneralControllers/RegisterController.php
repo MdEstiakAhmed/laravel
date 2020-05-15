@@ -54,13 +54,28 @@ class RegisterController extends Controller
 				'account_status'=> 'Activated',
 			]);
 
+		$status3 = DB::table('account_warning')->insert([
+			'user_id' => $id,
+			'warning_count' => 0,
+		]);
+
+		$status4 = DB::table('account_block_request')->insert([
+			'user_id' => $id,
+			'block_status' => 'Unblock',
+		]);
+
 		if(!$status1){
 			return redirect()->route('Register.Index',$id);
 		}else{
 			if(!$status2){
 				return redirect()->route('Register.Index',$id);
 			}else{
-				return redirect('/');
+				if(!$status3){
+					return redirect()->route('Register.Index',$id);
+				}
+				else{
+					return redirect('/');
+				}
 			}
 		}
     }
