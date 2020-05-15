@@ -18,6 +18,8 @@ Route::group(['middleware'=>['IdentityVerifier']], function(){
 	Route::get('/home/postManager/pendingPost', 'PostManagerControllers\PostManagerHomeController@pendingPost')->name('postManagerHome.pendingPost');
 	Route::get('/home/postManager/postApprove/{post_id}', 'PostManagerControllers\PostStatusController@postApprove')->name('PostStatus.postApprove');
 	Route::get('/home/postManager/posDelete/{post_id}', 'PostManagerControllers\PostStatusController@posDelete')->name('PostStatus.posDelete');
+	Route::get('/home/postManager/postWarning/{post_id}', 'PostManagerControllers\PostStatusController@postWarning')->name('PostStatus.postWarning');
+	Route::get('/home/postManager/postBlock/{post_id}', 'PostManagerControllers\PostStatusController@postBlock')->name('PostStatus.postBlock');
 });
 
 Route::group(['middleware'=>['sessionVerify']], function(){});

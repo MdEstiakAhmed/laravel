@@ -23,8 +23,8 @@
             <div>
                 <a href="{{route('PostStatus.postApprove', $post->post_id)}}" class="post-control bg-success">approve</a>
                 <a href="{{route('PostStatus.posDelete', $post->post_id)}}" class="post-control bg-danger">delete</a>
-                <a href="#" class="post-control bg-warning">warning</a>
-                <a href="#" class="post-control bg-info">block</a>
+                <a href="{{route('PostStatus.postWarning', $post->post_id)}}" class="post-control bg-warning">warning</a>
+                <a href="{{route('PostStatus.postBlock', $post->post_id)}}" class="post-control bg-info">block</a>
             </div>
         </div>
     @endforeach
