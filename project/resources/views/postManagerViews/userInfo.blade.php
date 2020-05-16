@@ -14,7 +14,9 @@
                 @endif
                 <h1 class="text-center">{{$userInfo->first_name}} {{$userInfo->last_name}}</h1>
                 <h1 class="text-center"><span>@</span>{{$userInfo->username}}</h1>
-                <h1 class="text-center"><a href="{{route('profileView.profileEdit', $userInfo->user_id)}}" class="btn btn-primary mb-5">EDIT</a></h1>
+                @if(session('user_id') == $userInfo->user_id)
+                    <h1 class="text-center"><a href="{{route('profileView.profileEdit', $userInfo->user_id)}}" class="btn btn-primary mb-5">EDIT</a></h1>
+                @endif
             </div>
             <div class="col-8">
                 <table class="table table-borderless">
