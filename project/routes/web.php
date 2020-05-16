@@ -23,6 +23,8 @@ Route::group(['middleware'=>['IdentityVerifier']], function(){
 	Route::get('/home/postManager/posDelete/{post_id}', 'PostManagerControllers\PostStatusController@posDelete')->name('PostStatus.posDelete');
 	Route::get('/home/postManager/postWarning/{post_id}', 'PostManagerControllers\PostStatusController@postWarning')->name('PostStatus.postWarning');
 	Route::get('/home/postManager/postBlock/{post_id}', 'PostManagerControllers\PostStatusController@postBlock')->name('PostStatus.postBlock');
+
+	Route::get('/home/postManager/userDetails/{user_id}', 'PostManagerControllers\userDetailsController@userInfo')->name('profileView.userInfo');
 });
 
 Route::group(['middleware'=>['sessionVerify']], function(){});

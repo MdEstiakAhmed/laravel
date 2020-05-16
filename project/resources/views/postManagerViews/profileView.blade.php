@@ -19,7 +19,7 @@
                 <h5>{{$userInfo->email}}</h5>
                 <h5>{{$userInfo->website}}</h5>
                 <h5>{{$userInfo->gender}}</h5>
-                <a class="btn btn-primary" href="{{route('postManagerHome.profileView', $userInfo->user_id)}}">View More</a>
+                <a class="btn btn-primary" href="{{route('profileView.userInfo', $userInfo->user_id)}}">View More</a>
             </div>
         </div>
     </div>
