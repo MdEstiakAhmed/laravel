@@ -25,6 +25,8 @@ Route::group(['middleware'=>['IdentityVerifier']], function(){
 	Route::get('/home/postManager/postBlock/{post_id}', 'PostManagerControllers\PostStatusController@postBlock')->name('PostStatus.postBlock');
 
 	Route::get('/home/postManager/userDetails/{user_id}', 'PostManagerControllers\userDetailsController@userInfo')->name('profileView.userInfo');
+	Route::get('/home/postManager/profileEdit/{user_id}', 'PostManagerControllers\userDetailsController@profileEdit')->name('profileView.profileEdit');
+	Route::post('/home/postManager/profileEdit/{user_id}', 'PostManagerControllers\userDetailsController@profileUpdate')->name('profileView.profileUpdate');
 });
 
 Route::group(['middleware'=>['sessionVerify']], function(){});

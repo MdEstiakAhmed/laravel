@@ -17,4 +17,17 @@ class userDetailsController extends Controller
         return view('postManagerViews.userInfo', ['userInfo' => $userInfo]);;
 
     }
+
+    public function profileEdit($user_id, Request $request){
+        $userInfo = DB::table('user_details')
+                        ->join('user_login', 'user_login.user_id', 'user_details.user_id')
+                        ->where('user_details.user_id', $user_id)
+                        ->first();
+
+        return view('postManagerViews.profileEdit', ['userInfo' => $userInfo]);;
+    }
+
+    public function profileUpdate($user_id, Request $request){
+        return $request;
+    }
 }
