@@ -115,3 +115,24 @@ td a{
     border-radius: 5px;
 }
 /* all user table design end */
+
+
+
+/* user profile design start */
+.profile-pic{
+    border: 1px solid rgb(211, 211, 211);
+    border-radius: 5px;
+}
+
+.profile-pic img{
+    display: block;
+    width: 80%;
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+.post-section{
+    margin-top: 30px;
+}
+/* user profile design end */
