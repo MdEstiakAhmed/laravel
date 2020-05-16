@@ -25,7 +25,7 @@ class PostManagerHomeController extends Controller
     public function all(Request $request){
         $allPost = DB::table('post_details')
                      ->join('user_details', 'user_details.user_id', 'post_details.user_id')
-                     ->select('user_details.first_name', 'user_details.last_name', 'post_details.post_text', 'post_details.post_id', 'post_details.post_type', 'post_details.post_time', 'post_details.post_image', 'post_details.post_status')
+                     ->select('user_details.first_name', 'user_details.last_name', 'post_details.post_text', 'post_details.post_id', 'post_details.post_type', 'post_details.post_time', 'post_details.post_image', 'post_details.post_status', 'post_details.user_id')
                      ->orderBy('post_details.post_id', 'ASC')
                      ->get();
         
@@ -35,7 +35,7 @@ class PostManagerHomeController extends Controller
     public function allPost(Request $request){
         $allPost = DB::table('post_details')
                      ->join('user_details', 'user_details.user_id', 'post_details.user_id')
-                     ->select('user_details.first_name', 'user_details.last_name', 'post_details.post_text', 'post_details.post_id', 'post_details.post_type', 'post_details.post_time', 'post_details.post_image', 'post_details.post_status')
+                     ->select('user_details.first_name', 'user_details.last_name', 'post_details.post_text', 'post_details.post_id', 'post_details.post_type', 'post_details.post_time', 'post_details.post_image', 'post_details.post_status', 'post_details.user_id')
                      ->where('post_status', 'Approved')
                      ->orderBy('post_details.post_id', 'ASC')
                      ->get();
@@ -46,7 +46,7 @@ class PostManagerHomeController extends Controller
     public function pendingPost(Request $request){
         $pendingPost = DB::table('post_details')
                          ->join('user_details', 'user_details.user_id', 'post_details.user_id')
-                         ->select('user_details.first_name', 'user_details.last_name', 'post_details.post_text', 'post_details.post_id', 'post_details.post_type', 'post_details.post_time', 'post_details.post_status', 'post_details.post_image')
+                         ->select('user_details.first_name', 'user_details.last_name', 'post_details.post_text', 'post_details.post_id', 'post_details.post_type', 'post_details.post_time', 'post_details.post_status', 'post_details.post_image', 'post_details.user_id')
                          ->where('post_status', 'Pending')
                          ->orderBy('post_details.post_id', 'ASC')
                          ->get();

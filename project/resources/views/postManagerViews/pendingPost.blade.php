@@ -12,7 +12,7 @@
     <h1>Pending Post</h1>
     @foreach($pendingPosts as $post)
         <div class="post-area">
-            <p class="user-name">{{$post->first_name}} {{$post->last_name}}</p>
+            <p class="user-name"><a class="text-dark" href="{{route('postManagerHome.profileView', $post->user_id)}}">{{$post->first_name}} {{$post->last_name}}</a></p>
             <p><span class="post-status">{{$post->post_status}}</span> <span class="post-type">{{$post->post_type}}</span> <span class="post-time">{{$post->post_time}}</span></p>
             <p class="post-text">{{$post->post_text}}</p>
             @if($post->post_image != null)
