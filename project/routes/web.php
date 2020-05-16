@@ -12,8 +12,11 @@ Route::group(['middleware'=>['IdentityVerifier']], function(){
 	
 	Route::get('/home', 'GeneralControllers\GeneralHomeController@index')->name('home.index');
 
+
+	
 	//post manager routes
 	Route::get('/home/postManager', 'PostManagerControllers\PostManagerHomeController@index')->name('postManagerHome.index');
+	Route::get('/home/postManager/all', 'PostManagerControllers\PostManagerHomeController@all')->name('postManagerHome.all');
 	Route::get('/home/postManager/allPost', 'PostManagerControllers\PostManagerHomeController@allPost')->name('postManagerHome.allPost');
 	Route::get('/home/postManager/pendingPost', 'PostManagerControllers\PostManagerHomeController@pendingPost')->name('postManagerHome.pendingPost');
 	Route::get('/home/postManager/UserList', 'PostManagerControllers\PostManagerHomeController@UserList')->name('postManagerHome.UserList');
@@ -32,6 +35,10 @@ Route::group(['middleware'=>['IdentityVerifier']], function(){
 	Route::get('/home/postManager/userDetails/{user_id}', 'PostManagerControllers\userDetailsController@userInfo')->name('profileView.userInfo');
 	Route::get('/home/postManager/profileEdit/{user_id}', 'PostManagerControllers\userDetailsController@profileEdit')->name('profileView.profileEdit');
 	Route::post('/home/postManager/profileEdit/{user_id}', 'PostManagerControllers\userDetailsController@profileUpdate')->name('profileView.profileUpdate');
+
+	Route::get('/home/postManager/allToday', 'PostManagerControllers\PostReportController@all')->name('postReport.all');
+	Route::get('/home/postManager/allPostToday', 'PostManagerControllers\PostReportController@allPost')->name('postReport.allPost');
+	Route::get('/home/postManager/pendingPostToday', 'PostManagerControllers\PostReportController@pendingPost')->name('postReport.pendingPost');
 });
 
 Route::group(['middleware'=>['sessionVerify']], function(){});

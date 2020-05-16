@@ -29,7 +29,8 @@
     <div class="sidenav">
         <a href="{{route('postManagerHome.index')}}">Home</a>
         <a href="{{route('postManagerHome.profileView', session('user_id'))}}">Profile</a>
-        <a href="{{route('postManagerHome.allPost')}}">All Post</a>
+        <a href="{{route('postManagerHome.all')}}">All Post</a>
+        <a href="{{route('postManagerHome.allPost')}}">Approved Post</a>
         <a href="{{route('postManagerHome.pendingPost')}}">Pending Post</a>
         <a href="{{route('postManagerHome.UserList')}}">User List</a>
         <a href="{{route('postManagerHome.createPost')}}">Create Post</a>
