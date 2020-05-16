@@ -43,4 +43,23 @@ class PostManagerHomeController extends Controller
 
         return view('postManagerViews.pendingPost', ['pendingPosts' => $pendingPost]);
     }
+
+    public function UserList(Request $request){
+        $allUser = DB::table('user_details')
+                     ->join('user_login', 'user_login.user_id', 'user_details.user_id')
+                     ->select('user_details.user_id', 'user_details.first_name', "user_details.last_name", 'user_login.email', 'user_login.username')
+                     ->orderBy('user_details.user_id', 'ASC')
+                     ->get();
+
+        return view('postManagerViews.userList', ['allUser' => $allUser]);
+    }
+
+    public function profileView($user_id, Request $request){
+        $userInfo = DB::table('user_details')
+                        ->join('user_login', 'user_login.user_id', 'user_details.user_id')
+                        ->where('user_details.user_id', $user_id)
+                        ->first();
+
+        return view('postManagerViews.profileView', ['userInfo' => $userInfo]);
+    }
 }

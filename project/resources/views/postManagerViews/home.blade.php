@@ -28,9 +28,10 @@
     <!-- side menu bar start -->
     <div class="sidenav">
         <a href="{{route('postManagerHome.index')}}">Home</a>
-        <a href="#">Profile</a>
+        <a href="{{route('postManagerHome.profileView', session('user_id'))}}">Profile</a>
         <a href="{{route('postManagerHome.allPost')}}">All Post</a>
         <a href="{{route('postManagerHome.pendingPost')}}">Pending Post</a>
+        <a href="{{route('postManagerHome.UserList')}}">User List</a>
         <a href="/logout">logout</a>
       </div>
     <!-- side menu bar end -->

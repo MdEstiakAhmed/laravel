@@ -93,3 +93,25 @@
 }
 
 /* pending post design start */
+
+/* all user table design start */
+table{
+    font-size: 20px;
+    text-align: center;
+}
+
+th{
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+td{
+    font-weight: 500;
+}
+
+td a{
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+/* all user table design end */
