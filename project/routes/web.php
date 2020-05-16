@@ -21,6 +21,7 @@ Route::group(['middleware'=>['IdentityVerifier']], function(){
 	Route::get('/home/postManager/createPost', 'PostManagerControllers\PostManagerHomeController@createPost')->name('postManagerHome.createPost');
 	Route::post('/home/postManager/createPost', 'PostManagerControllers\PostManagerHomeController@publishPost')->name('postManagerHome.publishPost');
 	Route::get('/home/postManager/notification/{user_id}', 'PostManagerControllers\PostManagerHomeController@notification')->name('postManagerHome.notification');
+	Route::post('/home/postManager/notification/{user_id}', 'PostManagerControllers\PostManagerHomeController@notificationSend')->name('postManagerHome.notificationSend');
 
 	Route::get('/home/postManager/postApprove/{post_id}', 'PostManagerControllers\PostStatusController@postApprove')->name('PostStatus.postApprove');
 	Route::get('/home/postManager/posDelete/{post_id}', 'PostManagerControllers\PostStatusController@posDelete')->name('PostStatus.posDelete');

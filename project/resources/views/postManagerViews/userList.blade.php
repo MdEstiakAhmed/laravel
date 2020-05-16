@@ -1,5 +1,13 @@
 @extends('postManagerViews.home')
 @section('content')
+	@if(Request()->session()->has('notification'))
+        <div class="alert alert-success notification" role="alert">
+            {{Request()->session()->get('notification')}}
+        </div>
+        @php
+            Request()->session()->forget('notification');
+        @endphp
+    @endif
     <table class="table">
 		<thead class="thead-dark">
 			<tr>

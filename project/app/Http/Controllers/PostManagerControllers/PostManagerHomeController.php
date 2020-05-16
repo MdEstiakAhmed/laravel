@@ -86,6 +86,16 @@ class PostManagerHomeController extends Controller
     }
 
     public function notification($user_id, Request $request){
-        return view('postManagerViews.notificationSend');
+        return view('postManagerViews.notificationSend', ['user_id'=>$user_id]);
+    }
+
+    public function notificationSend(Request $request){
+        DB::table('message_details')
+            ->insert(['user_id'=> $request->user_id, 'sender_id' => session('user_id'), 'message_text' => $request->post_text, 'message_time'=> date("Y-m-d H:i")]
+        );
+
+        $postPublishMessage = "notification send to ".$request->user_id;
+        $request->session()->put('notification', $postPublishMessage);
+        return redirect()->route('postManagerHome.UserList');
     }
 }
