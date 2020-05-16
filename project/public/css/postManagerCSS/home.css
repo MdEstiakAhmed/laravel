@@ -139,3 +139,25 @@ td a{
 
 
 /* user info design */
+
+
+/* report page design start */
+.report-page{
+    margin-left: 250px;
+    margin-top: 50px;
+}
+
+.box{
+
+}
+
+.count-box{
+    text-align: center;
+    padding: 50px 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 0 0px;
+    width: 33%;
+    max-width: 33%;
+}
+/* report page design end */

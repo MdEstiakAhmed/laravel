@@ -37,7 +37,7 @@ class PostManagerHomeController extends Controller
         $pendingPost = DB::table('post_details')
                          ->join('user_details', 'user_details.user_id', 'post_details.user_id')
                          ->select('user_details.first_name', 'user_details.last_name', 'post_details.post_text', 'post_details.post_id', 'post_details.post_type', 'post_details.post_time', 'post_details.post_status', 'post_details.post_image')
-                         ->where('post_status', 'pending')
+                         ->where('post_status', 'Pending')
                          ->orderBy('post_details.post_id', 'ASC')
                          ->get();
 
@@ -97,5 +97,30 @@ class PostManagerHomeController extends Controller
         $postPublishMessage = "notification send to ".$request->user_id;
         $request->session()->put('notification', $postPublishMessage);
         return redirect()->route('postManagerHome.UserList');
+    }
+
+    public function report(Request $request){
+        $date=date_create("2020-05-16 05:08");
+        // return date_format($date,"Y-m-d");
+
+
+        $total_post = DB::table('post_details')
+                        ->count();
+        $approved_post = DB::table('post_details')
+                        ->where('post_status', 'Approved')
+                        ->count();
+        $pending_post = DB::table('post_details')
+                        ->where('post_status', 'Pending')
+                        ->count();
+        $today_total_post = DB::table('post_details')
+                        ->where('post_time', 'like', '%' . date("Y-m-d") . '%')
+                        ->count();
+        $today_approved_post = DB::table('post_details')
+                        ->where([['post_status', 'Approved'], ['post_time', 'like', '%' . date("Y-m-d") . '%']])
+                        ->count();
+        $today_pending_post = DB::table('post_details')
+                        ->where([['post_status', 'Pending'], ['post_time', 'like', '%' . date("Y-m-d") . '%']])
+                        ->count();
+        return view('postManagerViews.report', ['totalPost' => $total_post, 'approvedPost' => $approved_post, 'pendingPost' => $pending_post, 'todayTotalPost' => $today_total_post, 'todayApprovedPost' => $today_approved_post, 'todayPendingPost' => $today_pending_post]);
     }
 }
