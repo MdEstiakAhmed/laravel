@@ -32,6 +32,7 @@
         <a href="{{route('postManagerHome.allPost')}}">All Post</a>
         <a href="{{route('postManagerHome.pendingPost')}}">Pending Post</a>
         <a href="{{route('postManagerHome.UserList')}}">User List</a>
+        <a href="{{route('postManagerHome.createPost')}}">Create Post</a>
         <a href="/logout">logout</a>
       </div>
     <!-- side menu bar end -->

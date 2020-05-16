@@ -70,4 +70,22 @@ class PostManagerHomeController extends Controller
         return view('postManagerViews.profileView', ['userInfo' => $userInfo, 'userPost' => $userPost]);
         // return $userPost;
     }
+
+    public function createPost(Request $request){
+        return view('postManagerViews.createPost');
+    }
+
+    public function publishPost(Request $request){
+        DB::table('post_details')
+            ->insert(['user_id' => session('user_id'), 'post_text' => $request->post_text, 'post_image'=> null, 'post_type'=> 'public', 'post_status'=> 'Approved', 'post_time'=> date("Y-m-d H:i")]
+        );
+
+        $postPublishMessage = "new post created by: ".session('user_id');
+        $request->session()->put('notification', $postPublishMessage);
+        return redirect()->route('postManagerHome.index');
+    }
+
+    public function notification($user_id, Request $request){
+        return view('postManagerViews.notificationSend');
+    }
 }

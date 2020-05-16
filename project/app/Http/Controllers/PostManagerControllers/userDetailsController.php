@@ -48,7 +48,9 @@ class userDetailsController extends Controller
             DB::table('user_login')
                 ->where('user_id', $user_id)
                 ->update(['email' => $request->email, 'password' => $request->password]);
-
+            
+            $updateMessage = "user id: ".$user_id." successfully updated";
+            $request->session()->put('notification', $updateMessage);
             return redirect()->route('profileView.userInfo', $user_id);
         }
     }

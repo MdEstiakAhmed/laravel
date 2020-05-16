@@ -57,8 +57,13 @@
                 </table>
             </div>
         </div>
-        
-
-        
+        @if(Request()->session()->has('notification'))
+        <div class="alert alert-success notification" role="alert">
+            {{Request()->session()->get('notification')}}
+        </div>
+        @php
+            Request()->session()->forget('notification');
+        @endphp
+    @endif
     </div>
 @endsection

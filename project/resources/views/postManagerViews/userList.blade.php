@@ -20,7 +20,7 @@
 					<td>{{$user->email}}</td>
 					<td>
 						<a href="{{route('postManagerHome.profileView', $user->user_id)}}" class="bg-info">view</a> | 
-						<a href="#" class="bg-primary">message</a> 
+						<a href="{{route('postManagerHome.notification', $user->user_id)}}" class="bg-primary">notification</a> 
 					</td>
 				</tr>
 			</tbody>

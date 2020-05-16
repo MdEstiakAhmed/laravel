@@ -1,11 +1,11 @@
 @extends('postManagerViews.home')
 @section('content')
-    @if(Request()->session()->has('post_status_change'))
-        <div class="alert alert-success post-approve" role="alert">
-            {{Request()->session()->get('post_status_change')}}
+    @if(Request()->session()->has('notification'))
+        <div class="alert alert-success notification" role="alert">
+            {{Request()->session()->get('notification')}}
         </div>
         @php
-            Request()->session()->forget('post_status_change');
+            Request()->session()->forget('notification');
         @endphp
     @endif
 

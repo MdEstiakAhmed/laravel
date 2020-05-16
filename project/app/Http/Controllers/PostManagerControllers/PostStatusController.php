@@ -14,7 +14,7 @@ class PostStatusController extends Controller
                 ->update(['post_status' => 'Approved']);
 
         $approvedMessage = "post id: ".$post_id." successfully approved";
-        $request->session()->put('post_status_change', $post_id);
+        $request->session()->put('notification', $post_id);
         return redirect()->route('postManagerHome.pendingPost');
     }
 
@@ -24,7 +24,7 @@ class PostStatusController extends Controller
             ->delete();
 
         $deleteMessage = "post id: ".$post_id." successfully deleted";
-        $request->session()->put('post_status_change', $deleteMessage);
+        $request->session()->put('notification', $deleteMessage);
         return redirect()->route('postManagerHome.pendingPost');
     }
 
@@ -48,7 +48,7 @@ class PostStatusController extends Controller
             ->update(['post_status' => 'Approved']);
 
         $postWarningMessage = "post id: ".$post_id." successfully approved with warning.";
-        $request->session()->put('post_status_change', $postWarningMessage);
+        $request->session()->put('notification', $postWarningMessage);
         return redirect()->route('postManagerHome.pendingPost');
     }
 
@@ -67,7 +67,7 @@ class PostStatusController extends Controller
             ->delete();
 
         $postWarningMessage = "post id: ".$post_id." successfully deleted with block request to; ".$postCreatorId->user_id;
-        $request->session()->put('post_status_change', $postWarningMessage);
+        $request->session()->put('notification', $postWarningMessage);
         return redirect()->route('postManagerHome.pendingPost');
     }
 }

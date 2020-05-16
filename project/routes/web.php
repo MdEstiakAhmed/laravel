@@ -18,6 +18,9 @@ Route::group(['middleware'=>['IdentityVerifier']], function(){
 	Route::get('/home/postManager/pendingPost', 'PostManagerControllers\PostManagerHomeController@pendingPost')->name('postManagerHome.pendingPost');
 	Route::get('/home/postManager/UserList', 'PostManagerControllers\PostManagerHomeController@UserList')->name('postManagerHome.UserList');
 	Route::get('/home/postManager/profileView/{user_id}', 'PostManagerControllers\PostManagerHomeController@profileView')->name('postManagerHome.profileView');
+	Route::get('/home/postManager/createPost', 'PostManagerControllers\PostManagerHomeController@createPost')->name('postManagerHome.createPost');
+	Route::post('/home/postManager/createPost', 'PostManagerControllers\PostManagerHomeController@publishPost')->name('postManagerHome.publishPost');
+	Route::get('/home/postManager/notification/{user_id}', 'PostManagerControllers\PostManagerHomeController@notification')->name('postManagerHome.notification');
 
 	Route::get('/home/postManager/postApprove/{post_id}', 'PostManagerControllers\PostStatusController@postApprove')->name('PostStatus.postApprove');
 	Route::get('/home/postManager/posDelete/{post_id}', 'PostManagerControllers\PostStatusController@posDelete')->name('PostStatus.posDelete');
