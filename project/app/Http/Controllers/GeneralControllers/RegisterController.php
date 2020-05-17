@@ -16,12 +16,12 @@ class RegisterController extends Controller
     public function Register(Request $request){
         
 		$Validation = Validator::make($request->all(), [
-			'fname'    => 'required',
-			'lname'    => 'required',
-			'username' => 'required',
-			'email'    => 'required',
-			'pass1'	   => 'required',
-			'pass2'	   => 'required'
+			'fname'    => 'required|regex:/^[a-zA-Z\s]+$/',
+			'lname'    => 'required|regex:/^[a-zA-Z\s]+$/',
+			'username' => 'required|unique:user_login',
+			'email'    => 'required|email|unique:user_login',
+			'pass1'	   => 'required|min:5',
+			'pass2'	   => 'required|same:pass1'
 		]);
 
 		if($Validation->fails()){
