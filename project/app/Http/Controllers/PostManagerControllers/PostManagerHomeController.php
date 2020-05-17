@@ -12,7 +12,8 @@ class PostManagerHomeController extends Controller
         if($request->session()->has('user_id')){
 
             $user = DB::table('user_details')
-                        ->where('user_id', $request->session()->get('user_id'))
+                        ->join('user_login', 'user_login.user_id', 'user_details.user_id')
+                        ->where('user_details.user_id', $request->session()->get('user_id'))
                         ->first();
 
             return view('postManagerViews.homeContent', ['user' => $user]);
@@ -132,5 +133,9 @@ class PostManagerHomeController extends Controller
                         ->where([['post_status', 'Pending'], ['post_time', 'like', '%' . date("Y-m-d") . '%']])
                         ->count();
         return view('postManagerViews.report', ['totalPost' => $total_post, 'approvedPost' => $approved_post, 'pendingPost' => $pending_post, 'todayTotalPost' => $today_total_post, 'todayApprovedPost' => $today_approved_post, 'todayPendingPost' => $today_pending_post]);
+    }
+
+    public function search(){
+        return view('postManagerViews.search');
     }
 }

@@ -26,6 +26,7 @@ Route::group(['middleware'=>['IdentityVerifier']], function(){
 	Route::get('/home/postManager/notification/{user_id}', 'PostManagerControllers\PostManagerHomeController@notification')->name('postManagerHome.notification');
 	Route::post('/home/postManager/notification/{user_id}', 'PostManagerControllers\PostManagerHomeController@notificationSend')->name('postManagerHome.notificationSend');
 	Route::get('/home/postManager/report', 'PostManagerControllers\PostManagerHomeController@report')->name('postManagerHome.report');
+	Route::get('/home/postManager/search', 'PostManagerControllers\PostManagerHomeController@search')->name('postManagerHome.search');
 
 	Route::get('/home/postManager/postApprove/{post_id}', 'PostManagerControllers\PostStatusController@postApprove')->name('PostStatus.postApprove');
 	Route::get('/home/postManager/posDelete/{post_id}', 'PostManagerControllers\PostStatusController@posDelete')->name('PostStatus.posDelete');
@@ -39,6 +40,8 @@ Route::group(['middleware'=>['IdentityVerifier']], function(){
 	Route::get('/home/postManager/allToday', 'PostManagerControllers\PostReportController@all')->name('postReport.all');
 	Route::get('/home/postManager/allPostToday', 'PostManagerControllers\PostReportController@allPost')->name('postReport.allPost');
 	Route::get('/home/postManager/pendingPostToday', 'PostManagerControllers\PostReportController@pendingPost')->name('postReport.pendingPost');
+
+	Route::post('/home/postManager/ajaxSearch', 'PostManagerControllers\PostSearchController@ajaxSearch')->name('postSearch.ajaxSearch');
 });
 
 Route::group(['middleware'=>['sessionVerify']], function(){});
