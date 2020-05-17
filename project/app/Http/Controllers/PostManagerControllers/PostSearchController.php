@@ -16,7 +16,6 @@ class PostSearchController extends Controller
                         ->join('post_details', 'post_details.user_id', 'user_details.user_id')
                         ->where('user_details.first_name','like','%'.$data.'%')
                         ->orWhere('user_details.last_name','like','%'.$data.'%')
-                        ->orWhere('post_details.post_text','like','%'.$data.'%')
                         ->orderBy('post_details.post_id', 'ASC')
                         ->get();
         }
@@ -29,6 +28,6 @@ class PostSearchController extends Controller
 
         
 
-        return response()->json(['data'=> $userInfo]);
+        return response()->json(['data'=> $userInfo], 200);
     }
 }

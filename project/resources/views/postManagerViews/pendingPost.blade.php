@@ -9,7 +9,7 @@
         @endphp
     @endif
 
-    <h1>Pending Post</h1>
+    <h1 class="text-center m-3">Pending Post</h1>
     @foreach($pendingPosts as $post)
         <div class="post-area">
             <p class="user-name"><a class="text-dark" href="{{route('postManagerHome.profileView', $post->user_id)}}">{{$post->first_name}} {{$post->last_name}}</a></p>

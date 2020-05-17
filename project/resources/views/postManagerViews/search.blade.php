@@ -11,7 +11,7 @@
                 </div>
             </div>
 
-            <div class="add"></div>
+            <div class="search-post"></div>
         </form>
     </div>
 @endsection

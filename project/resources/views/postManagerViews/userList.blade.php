@@ -27,8 +27,8 @@
 					<td>{{$user->username}}</td>
 					<td>{{$user->email}}</td>
 					<td>
-						<a href="{{route('postManagerHome.profileView', $user->user_id)}}" class="bg-info">view</a> | 
-						<a href="{{route('postManagerHome.notification', $user->user_id)}}" class="bg-primary">notification</a> 
+						<a href="{{route('postManagerHome.profileView', $user->user_id)}}" class="bg-info m-1">view</a>
+						<a href="{{route('postManagerHome.notification', $user->user_id)}}" class="bg-primary m-1">notification</a> 
 					</td>
 				</tr>
 			</tbody>
