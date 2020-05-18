@@ -2,12 +2,21 @@ body{
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(131,196,213,1) 46%, rgba(0,212,255,1) 100%);
 }
-
+a{
+	color: dodgerblue;
+	text-decoration: none;
+	text-shadow:4px 4px 8px lime;	
+}
 .about-link, .signup-link{
     color: white;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 400;
-    width: 100px;
+    width: 150px;
+	text-align:right;
+}
+.brand-link{
+    font-size: 40px;
+    font-weight: 1400;
 }
 
 .signup-link:hover{
@@ -25,8 +34,196 @@ body{
     margin-top: 150px;
     padding: 0 50px;
 }
+
+.credential-content{
+    color: white;
+    margin-top: 50px;
+    padding: 0 150px;
+}
     
 .login-form{
     margin-top: 170px;
     padding: 0 50px;
+}
+.regi-form{
+    margin-top: -50px;
+    padding: 0px 50px 50px 50px;
+}
+
+.content-div{
+	margin-top: 50px;
+	padding: 0 100px 50px 0;
+}
+
+.timeline-div{
+	margin-top: 		0px;
+	padding: 0 100px 50px 0;
+}
+
+.center-text{
+	text-align:center;
+}
+
+.name-text{
+	padding:10px;
+}
+
+.account-text{
+	padding:30px;
+}
+
+.account-table{
+	border-top:1px solid black;
+	width:100%;
+}
+.account-head-table td{
+	border-left:1px solid black;
+	border-bottom:1px solid black;
+	width:10%;
+}
+
+.select-bar{
+	background-color:transparent;
+}
+
+.approve-button{
+	background-color:lime;
+	padding:5px;
+	border-radius:5px;
+}
+
+.deny-button{
+	background-color:red;
+	padding:5px;
+	border-radius:5px;
+}
+
+.pending-button{
+	background-color:yellow;
+	padding:5px;
+	border-radius:5px;
+}
+
+.post-area{
+	overflow:auto;
+	height:400px;
+	padding:15px;
+}
+
+.post-text-data{
+	color:chocolate;
+	text-align:justify;
+	font-family:Segoe Script, MS Sans Serif, MS Serif;
+}
+
+.static-data-bar{
+	width:150px;
+	height:150px;
+	background-color:transparent;
+	padding:20px;
+	text-align:center;
+	font-family:Tahoma;
+	border:3px solid black;
+	border-radius:25px;
+}
+.static-text{
+	font-family:Chiller;
+	font-size:35px;
+	text-shadow:4px 4px 8px lime;
+}
+
+.posts-data{
+	color:white;
+}
+
+.chart-panel{
+	background-color:transparent;
+}
+
+.approved-posts{
+	background-color:rgba(0,122,0,0.2);
+	padding:10px;
+}
+
+.disapproved-posts{
+	background-color:rgba(122,0,0,0.4);
+	padding:10px;
+}
+
+.posts-long{
+	overflow:auto;
+	height:500px;
+	padding:15px;
+}
+
+.post-pics{
+	width:70%;
+	height:40%;
+}
+
+#myProgress {
+  margin-left:-100px;
+  width: 100%;
+  background-color: #ddd;
+}
+
+#TotalAccountsBar {
+  width: 1%;
+  height: 30px;
+  background-color: lime;
+}
+#AccountTypeBar {
+  width: 1%;
+  height: 30px;
+  background-color: #4CAF50;
+}
+#DeactivatedAccountBar {
+  width: 1%;
+  height: 30px;
+  background-color: #4CAF50;
+}
+#BlockedAccountBar {
+  width: 1%;
+  height: 30px;
+  background-color: red;
+}
+
+.manager-row {
+  background-color: rgba(50,0,0,0.4);
+}
+
+.muted-text {
+  color: gray;
+  font-size:0.7em;
+}
+
+.all-post-align {
+  color:white;
+  margin-left:200px;
+}
+
+.notif-div {
+  border-radius:10px;
+  font-size:12px;
+  padding:2px;
+  margin-top:5px;
+  background-color:rgba(0,100,222,0.2);
+}
+
+.sender-tag {
+  border-radius:10px;
+  background-color:dodgerblue;
+  padding:10px;
+  background-color:rgba(0,100,222,0.4);
+}
+
+.del-color {
+  color:red;
+}
+
+.right-align {
+  text-align:right;
+}
+.left-margin {
+  margin-left:-100px;
 }
