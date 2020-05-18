@@ -11,8 +11,6 @@ Route::post('/register', 'GeneralControllers\RegisterController@Register')->name
 Route::group(['middleware'=>['IdentityVerifier']], function(){
 	
 	Route::get('/home', 'GeneralControllers\GeneralHomeController@index')->name('home.index');
-
-
 	
 	//post manager routes
 	Route::get('/home/postManager', 'PostManagerControllers\PostManagerHomeController@index')->name('postManagerHome.index');
@@ -42,6 +40,15 @@ Route::group(['middleware'=>['IdentityVerifier']], function(){
 	Route::get('/home/postManager/pendingPostToday', 'PostManagerControllers\PostReportController@pendingPost')->name('postReport.pendingPost');
 
 	Route::post('/home/postManager/ajaxSearch', 'PostManagerControllers\PostSearchController@ajaxSearch')->name('postSearch.ajaxSearch');
+	
+	//ACM Routes
+	Route::get('/home/AccountManager', 'AccountManagerControllers\AcmHomeController@Index')->name('AcmHome.Index');
+	Route::get('/AccountManager/Profile', 'AccountManagerControllers\AcmProfileController@Index')->name('AcmProfile.Index');
+	Route::post('/AccountManager/Profile', 'AccountManagerControllers\AcmProfileController@Update')->name('AcmProfile.Update');
+	Route::get('/AccountManager/Timeline', 'AccountManagerControllers\AcmProfileController@Timeline')->name('AcmProfile.Timeline');
+	Route::post('/AccountManager/Profile/Post', 'AccountManagerControllers\AcmProfileController@Statuspost')->name('AcmProfile.Statuspost');
+	
+	Route::get('/AccountManager/UserProfile/{id}', 'AccountManagerControllers\UserProfileController@Index')->name('UserProfile.Index');
 });
 
 Route::group(['middleware'=>['sessionVerify']], function(){});
