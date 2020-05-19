@@ -48,7 +48,23 @@ Route::group(['middleware'=>['IdentityVerifier']], function(){
 	Route::get('/AccountManager/Timeline', 'AccountManagerControllers\AcmProfileController@Timeline')->name('AcmProfile.Timeline');
 	Route::post('/AccountManager/Profile/Post', 'AccountManagerControllers\AcmProfileController@Statuspost')->name('AcmProfile.Statuspost');
 	
+	Route::post('/AccountManager/MessagePost', 'AccountManagerControllers\AcmHomeController@MessagePost')->name('AcmHome.MessagePost');
+	Route::get('/deleteMessage/{msgID}', 'AccountManagerControllers\AcmHomeController@MessageDelete')->name('AcmHome.MessageDelete');
+	
 	Route::get('/AccountManager/UserProfile/{id}', 'AccountManagerControllers\UserProfileController@Index')->name('UserProfile.Index');
+	Route::get('/AccountManager/UserProfile/{id}/Activate', 'AccountManagerControllers\UserProfileController@Activate')->name('UserProfile.Activate');
+	Route::get('/AccountManager/UserProfile/{id}/Deactivate', 'AccountManagerControllers\UserProfileController@Deactivate')->name('UserProfile.Deactivate');
+
+	Route::get('/AccountManager/Report/{searchBy}', 'AccountManagerControllers\AcmReportController@Index')->name('AcmReport.Index');
+	Route::get('/AccountManager/Report/Download/{searchBy}', 'AccountManagerControllers\AcmReportController@Download')->name('AcmReport.Download');	
+	Route::get('/AccountManager/StatisticalReport/{searchBy}', 'AccountManagerControllers\AcmStatisticalReportController@Index')->name('AcmStatistical.Index');
+	Route::post('/searchTxt', 'AccountManagerControllers\AcmReportController@AdvSearch')->name('AcmReport.AdvSearch');
+	
+	Route::get('/AccountManager/UserPosts/{mon}', 'AccountManagerControllers\UserPostController@Index')->name('UserPost.Index');
+
+	Route::get('/Block/{id}', 'AccountManagerControllers\AcmHomeController@Block')->name('AcmHome.Block');
+	Route::get('/Unblock/{id}', 'AccountManagerControllers\AcmHomeController@Unblock')->name('AcmHome.Unblock');
+	
 });
 
 Route::group(['middleware'=>['sessionVerify']], function(){});
