@@ -26,9 +26,7 @@ class AcmReportController extends Controller
 						->get();
 						
 			$blockData = DB::table('account_block_request')->get();
-			
-			
-			
+			return view('AccountManagerViews.report', ['user' => $user,'data' => $data,'blockData' => $blockData,'reportState' => $searchBy]);
         }
         else{
             return redirect('/logout');
@@ -50,10 +48,7 @@ class AcmReportController extends Controller
 						
 			$blockData = DB::table('account_block_request')->get();
 			
-			
-				$pdf = PDF::loadView('AccountManagerViews.download', compact('user','data','blockData','reportState'));
-				return $pdf->download($timeTrack.'.pdf');
-			
+			return view('AccountManagerViews.report', ['user' => $user,'data' => $data,'blockData' => $blockData,'reportState' => $searchBy]);
         }
         else{
             return redirect('/logout');
@@ -71,15 +66,17 @@ class AcmReportController extends Controller
 					
 		$blockData = DB::table('account_block_request')->get();
 		
-		
+		$msi='';
+		$msg = '<table border="1px" width="100%">
+					<tr>
+						<th class="center-text">User ID</th>
+						<th class="name-text">Name</th>
+						<th class="center-text">Warnings</th>
+						<th class="center-text">Account Status</th>
+						<th class="center-text">Block Status</th>
+					</tr>';
+		$msg = $msg.$msi.'</table>';
+		return response()->json(array('msg'=>$msg),200);
 		
 	}
 }
-
-// $data = DB::table('account_warning')
-		// ->rightJoin('user_details','user_details.user_id','=','account_warning.user_id')
-		// ->rightJoin('user_follower','user_details.user_id','=','user_follower.user_id')
-		// ->orderBy('user_details.user_id')
-		// ->select('count(user_id) as sett')
-		// ->get();
-		

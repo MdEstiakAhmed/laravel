@@ -26,6 +26,20 @@ function ErrFunc()
 	alert(msg);
 }
 
+function statFunc(totals) {
+	
+	var totals = totals;
+	var data = document.getElementById("selectedStat").value;
+	var dataArray = data.split("-");
+	var typeAcc = ((100*dataArray[0])/totals).toFixed();
+	var deacts = ((100*dataArray[1])/totals).toFixed();
+	var blcks = ((100*dataArray[2])/totals).toFixed();
+	document.getElementById("totAcc").innerHTML=totals;
+	document.getElementById("typeAcc").innerHTML="Total Accounts: "+dataArray[0]+" ("+typeAcc+"%)";
+	document.getElementById("deacts").innerHTML=dataArray[1]+" ("+deacts+"%)";
+	document.getElementById("blcks").innerHTML=dataArray[2]+" ("+blcks+"%)";
+}
+
 $(document).ready(function(){
 	
 	mandatoryfields();

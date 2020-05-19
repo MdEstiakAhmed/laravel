@@ -31,6 +31,15 @@
 									<option value="/logout">Logout</option>
 								</select>
                             </li>
+							<li class="nav-item">
+                                <a class="nav-link about-link" href="/AccountManager/Report/General">Account Report</a>
+                            </li>
+							<li class="nav-item">
+                                <a class="nav-link about-link" href="/AccountManager/StatisticalReport/General">Statistical Report</a>
+                            </li>
+							<li class="nav-item">
+                                <a class="nav-link about-link" href="/home/AccountManager">Home</a>
+                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -46,7 +55,28 @@
 					<option value="/AccountManager/UserPosts/04">Show Posts From : 2020 Apr 01 - Apr 30</option>
 					<option value="/AccountManager/UserPosts/05">Show Posts From : 2020 May 01 - May 31</option>
 				</select></span>
-			
+			<div class="posts-long">
+			<p>"{{count($postData)}}" <span class="muted-text">Total Posts</span></p>
+				@foreach($postData as $post)
+					@if($post->post_status=='Approved')
+						<div class="approved-posts">
+							<strong><a href="/AccountManager/UserProfile/{{$post->user_id}}">{{$post->first_name}} {{$post->last_name}}</a></strong><br/>
+								<small class="muted-text">{{$post->post_time}}</small><br/>
+									<p class="post-text-data posts-data">{{$post->post_text}}</p>
+										@if($post->post_image != null) <center><img src="{{asset('images/'.$post->post_image)}}" class="post-pics" title="Post Image" /></center> @endif
+											@if($post->post_type=='public')<a class="approve-button">{{$post->post_type}} @else <a class="pending-button">{{$post->post_type}} </a> @endif <a href=""> &nbsp &nbsp </a> @if($post->post_status=='Approved')<a class="approve-button">{{$post->post_status}} @else <a class="deny-button">{{$post->post_status}} @endif </a><br/>
+						</div><br/>
+					@else
+						<div class="disapproved-posts">
+							<strong><a href="/AccountManager/UserProfile/{{$post->user_id}}">{{$post->first_name}} {{$post->last_name}}</a></strong><br/>
+								<small class="muted-text">{{$post->post_time}}</small><br/>
+									<p class="post-text-data posts-data">{{$post->post_text}}</p>
+										@if($post->post_image != null) <center><img src="{{asset('images/'.$post->post_image)}}" class="post-pics" title="Post Image" /></center> @endif
+											@if($post->post_type=='public')<a class="approve-button">{{$post->post_type}} @else <a class="pending-button">{{$post->post_type}} </a> @endif <a href=""> &nbsp &nbsp </a> @if($post->post_status=='Approved')<a class="approve-button">{{$post->post_status}} @else <a class="deny-button">{{$post->post_status}} @endif </a><br/>
+						</div><br/>
+					@endif
+				@endforeach
+			</div>
 		</div>
 
 		<!-- CDN link section start -->

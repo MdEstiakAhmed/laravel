@@ -30,6 +30,42 @@ class UserProfileController extends Controller
         }
     }
 	
+	public function Activate($id,Request $request){
+		
+		if($request->session()->has('user_id') && $request->session()->has('acmStatus')){
+			$status = DB::table('user_details')
+					->where('user_id', $id)
+					->update(['account_status' => 'Activated']);
+
+			if(!$status){
+				
+			}else{
+				return redirect()->route('UserProfile.Index',$id);
+			}
+		}
+		else{
+			return redirect('/logout');
+		}
+    }
+	
+	public function Deactivate($id,Request $request){
+		if($request->session()->has('user_id') && $request->session()->has('acmStatus')){
+			$status = DB::table('user_details')
+					->where('user_id', $id)
+					->update(['account_status' => 'Deactivated']);
+
+			if(!$status){
+				
+			}else{
+				return redirect()->route('UserProfile.Index',$id);
+			}
+		}
+		else{
+			return redirect('/logout');
+		}
+    }
+	
+	
 	
 	// public function Update(Request $request){
 		
