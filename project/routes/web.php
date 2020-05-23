@@ -64,6 +64,33 @@ Route::group(['middleware'=>['IdentityVerifier']], function(){
 
 	Route::get('/Block/{id}', 'AccountManagerControllers\AcmHomeController@Block')->name('AcmHome.Block');
 	Route::get('/Unblock/{id}', 'AccountManagerControllers\AcmHomeController@Unblock')->name('AcmHome.Unblock');
+
+	//************* User Routes *****************//
+
+	//home
+	Route::get('/user/home', 'UserControllers\UserHomeController@index')->name('userHome.index');
+	
+	//upload
+	Route::get('/user/upload', 'UserControllers\UserUploadController@index')->name('upload.index');
+	Route::post('/user/upload', 'UserControllers\UserUploadController@post')->name('upload.post');
+	
+	//ajax post
+	Route::post('/user/ajax/post_details', 'UserControllers\UserPostController@ajaxPost')->name('post.ajaxPost');
+	Route::get('/user/ajax/post_details', 'UserControllers\UserPostController@ajaxPost')->name('post.ajaxPost');
+
+	//ajax comments
+	Route::post('/user/ajax/post_details/comments', 'UserControllers\UserPostController@ajaxComment')->name('post.ajaxComment');
+	
+	//ajax likes
+	Route::post('/user/ajax/post_details/likes', 'UserControllers\UserPostController@ajaxLike')->name('post.ajaxLike');
+	Route::get('/user/ajax/post_details/likes', 'UserControllers\UserPostController@ajaxLike')->name('post.ajaxLike');
+	
+	//profile
+	Route::get('/user/{username}', 'UserControllers\UserProfileController@index')->name('profile.index');
+	
+	//settings
+	Route::get('/user/{username}/settings', 'UserControllers\UserSettingsController@index')->name('settings.index');
+	Route::post('/user/{username}/settings', 'UserControllers\UserSettingsController@update')->name('settings.update');
 	
 });
 

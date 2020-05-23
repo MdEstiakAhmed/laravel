@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2020 at 07:21 AM
+-- Generation Time: May 19, 2020 at 09:08 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -82,7 +82,7 @@ INSERT INTO `account_block_request` (`user_id`, `block_status`) VALUES
 (10047, 'Unblock'),
 (10048, 'Unblock'),
 (10049, 'Unblock'),
-(10050, 'Unblock'),
+(10050, 'Pending'),
 (10051, 'Unblock'),
 (10052, 'Unblock'),
 (10053, 'Unblock'),
@@ -373,7 +373,7 @@ INSERT INTO `account_warning` (`user_id`, `warning_count`) VALUES
 (10016, 0),
 (10018, 0),
 (10019, 0),
-(10020, 0),
+(10020, 1),
 (10021, 0),
 (10022, 0),
 (10023, 0),
@@ -688,7 +688,8 @@ INSERT INTO `message_details` (`message_id`, `user_id`, `sender_id`, `message_te
 (1103, 10014, 10001, 'Account activity checked of User id : 10160', '2020-05-08 06:05'),
 (1104, 10008, 10002, 'checking notification', '2020-05-16 05:31'),
 (1105, 10009, 10002, 'second check', '2020-05-16 05:31'),
-(1106, 10001, 10002, 'test', '2020-05-17 05:12');
+(1106, 10001, 10002, 'test', '2020-05-17 05:12'),
+(1107, 10001, 10002, 'test', '2020-05-19 06:37');
 
 -- --------------------------------------------------------
 
@@ -699,6 +700,7 @@ INSERT INTO `message_details` (`message_id`, `user_id`, `sender_id`, `message_te
 CREATE TABLE `post_comment` (
   `post_id` int(5) NOT NULL,
   `user_id` int(5) NOT NULL,
+  `comment_id` int(5) NOT NULL,
   `comment_text` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -706,7 +708,28 @@ CREATE TABLE `post_comment` (
 -- Dumping data for table `post_comment`
 --
 
-INSERT INTO `post_comment` (`post_id`, `user_id`, `comment_text`) VALUES
+INSERT INTO `post_comment` (`post_id`, `user_id`, `comment_id`, `comment_text`) VALUES
+(20001, 10001, 0, 'testing'),
+(20002, 10003, 0, 'testing'),
+(20003, 10002, 0, 'testing');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `post_comments`
+--
+
+CREATE TABLE `post_comments` (
+  `post_id` int(5) NOT NULL,
+  `user_id` int(5) NOT NULL,
+  `comment_text` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `post_comments`
+--
+
+INSERT INTO `post_comments` (`post_id`, `user_id`, `comment_text`) VALUES
 (20001, 10001, 'testing'),
 (20002, 10003, 'testing'),
 (20003, 10002, 'testing');
@@ -793,7 +816,7 @@ INSERT INTO `post_details` (`post_id`, `user_id`, `post_text`, `post_image`, `po
 (20087, 10069, 'The supreme art of war is to subdue the enemy without fighting.\r\nSun Tzu<br/>', NULL, 'private', 'Approved', '2020-04-28 04:34'),
 (20088, 10029, '“All our dreams can come true If we have the courage to pursue them.”<br/>', NULL, 'private', 'Approved', '2020-03-20 07:13'),
 (20089, 10027, 'Happiness resides not in possessions, and not in gold, happiness dwells in the soul.\r\nDemocritus<br/>', NULL, 'public', 'Approved', '2020-04-17 08:39'),
-(20093, 10050, 'Life is not a problem to be solved, but a reality to be experienced.\r\nSoren Kierkegaard<br/>', NULL, 'public', 'Pending', '2020-04-14 02:26'),
+(20093, 10050, 'Life is not a problem to be solved, but a reality to be experienced.\r\nSoren Kierkegaard<br/>', NULL, 'public', 'Approved', '2020-04-14 02:26'),
 (20094, 10095, '“My last relationship taught me that I never want to feel like I’m begging for someone’s love, ever.”<br/>', NULL, 'private', 'Approved', '2020-03-11 02:30'),
 (20096, 10048, 'Don\'t judge each day by the harvest you reap but by the seeds that you plant.\r\nRobert Louis Stevenson<br/>', NULL, 'public', 'Approved', '2020-03-29 08:35'),
 (20097, 10029, '“She made broken look beautiful and strong look invincible. She walked shoulders and made it look like a pair of wings.”\r\n-Ariana-<br/>', NULL, 'private', 'Approved', '2020-04-12 00:41'),
@@ -804,10 +827,8 @@ INSERT INTO `post_details` (`post_id`, `user_id`, `post_text`, `post_image`, `po
 (20103, 10061, '“Keep shining beautiful one. The world needs your light.”<br/>', NULL, 'private', 'Approved', '2020-04-20 05:58'),
 (20104, 10073, 'I have not failed. I\'ve just found 10,000 ways that won\'t work.\r\nThomas A. Edison<br/>', NULL, 'public', 'Approved', '2020-03-29 08:32'),
 (20105, 10047, 'Happiness can exist only in acceptance.\r\nGeorge Orwell<br/>', NULL, 'public', 'Approved', '2020-03-28 02:21'),
-(20106, 10100, 'Nothing is impossible, the word itself says \'I\'m possible\'!\r\nAudrey Hepburn<br/>', NULL, 'private', 'Pending', '2020-03-28 09:35'),
-(20108, 10020, 'When we are no longer able to change a situation - we are challenged to change ourselves.\r\nViktor E. Frankl<br/>', NULL, 'public', 'Pending', '2020-03-14 03:48'),
+(20108, 10020, 'When we are no longer able to change a situation - we are challenged to change ourselves.\r\nViktor E. Frankl<br/>', NULL, 'public', 'Approved', '2020-03-14 03:48'),
 (20110, 10095, '”As soon as I wake up, I check my phone, hoping there’s a message from you.”<br/>', NULL, 'private', 'Approved', '2020-04-28 04:52'),
-(20111, 10050, '“I’m sad but I smile. That’s my life.”<br/>', NULL, 'private', 'Pending', '2020-04-22 04:53'),
 (20112, 10068, '“Anyone can love a rose, but it takes a lot to love a leaf. It’s ordinary to love the beautiful, but it’s beautiful to love the ordin.”<br/>', NULL, 'public', 'Approved', '2020-03-29 09:29'),
 (20114, 10027, 'In three words I can sum up everything I\'ve learned about life: it goes on.\r\nRobert Frost<br/>', NULL, 'private', 'Approved', '2020-04-26 07:18'),
 (20116, 10049, '“You are the fitness, loveliest, tenderest, and most beautiful person I have ever known. – and even that is an understatement.\r\n-F. Scott fitzgerald-<br/>', NULL, 'private', 'Approved', '2020-03-20 03:52'),
@@ -1022,9 +1043,9 @@ INSERT INTO `post_details` (`post_id`, `user_id`, `post_text`, `post_image`, `po
 (20445, 10096, 'Happiness resides not in possessions, and not in gold, happiness dwells in the soul.\r\nDemocritus<br/>', NULL, 'private', 'Approved', '2020-03-11 01:50'),
 (20446, 10104, '“You are not here to make others understand you. You are here to understand yourself.”\r\n– Krissen Butler –<br/>', NULL, 'private', 'Approved', '2020-03-18 01:37'),
 (20448, 10046, '“It’s okay to be scared. being scared means you’re about to do something really, really brave.”<br/>', NULL, 'private', 'Approved', '2020-03-12 03:16'),
-(20449, 10056, 'Don\'t judge each day by the harvest you reap but by the seeds that you plant.\r\nRobert Louis Stevenson<br/>', NULL, 'public', 'Approved', '2020-04-11 04:50');
+(20449, 10056, 'Don\'t judge each day by the harvest you reap but by the seeds that you plant.\r\nRobert Louis Stevenson<br/>', NULL, 'public', 'Approved', '2020-04-11 04:50'),
+(20451, 10016, ' ” You Were Given This Life Because You Are Strong Enough To Live It.”<br/>', NULL, 'private', 'Approved', '2020-03-30 00:53');
 INSERT INTO `post_details` (`post_id`, `user_id`, `post_text`, `post_image`, `post_type`, `post_status`, `post_time`) VALUES
-(20451, 10016, ' ” You Were Given This Life Because You Are Strong Enough To Live It.”<br/>', NULL, 'private', 'Approved', '2020-03-30 00:53'),
 (20453, 10102, '” Is fat really the worst thing a human being can be? Is fat worse than vindictive, jealous, shallow, vain, boring, evil, or cruel? Not to me.”\r\n-J.K. Rowling –<br/>', NULL, 'private', 'Approved', '2020-04-29 05:17'),
 (20455, 10089, 'All our dreams can come true, if we have the courage to pursue them.\r\nWalt Disney<br/>', NULL, 'private', 'Approved', '2020-04-10 09:53'),
 (20459, 10031, 'It is during our darkest moments that we must focus to see the light.\r\nAristotle<br/>', NULL, 'public', 'Approved', '2020-04-17 04:22'),
@@ -1311,9 +1332,9 @@ INSERT INTO `post_details` (`post_id`, `user_id`, `post_text`, `post_image`, `po
 (20867, 10093, 'Find a place inside where there\'s joy, and the joy will burn out the pain.\r\nJoseph Campbell<br/>', NULL, 'public', 'Approved', '2020-03-12 03:54'),
 (20868, 10070, 'Lord, make me an instrument of thy peace. Where there is hatred, let me sow love.\r\nFrancis of Assisi<br/>', NULL, 'public', 'Pending', '2020-03-30 00:35'),
 (20869, 10076, '”As soon as I wake up, I check my phone, hoping there’s a message from you.”<br/>', NULL, 'private', 'Approved', '2020-03-27 04:53'),
-(20871, 10056, 'The only journey is the one within.\r\nRainer Maria Rilke<br/>', NULL, 'public', 'Approved', '2020-04-19 00:41');
+(20871, 10056, 'The only journey is the one within.\r\nRainer Maria Rilke<br/>', NULL, 'public', 'Approved', '2020-04-19 00:41'),
+(20873, 10015, 'One of the most beautiful qualities of true friendship is to understand and to be understood.\r\nLucius Annaeus Seneca<br/>', NULL, 'public', 'Approved', '2020-04-26 01:48');
 INSERT INTO `post_details` (`post_id`, `user_id`, `post_text`, `post_image`, `post_type`, `post_status`, `post_time`) VALUES
-(20873, 10015, 'One of the most beautiful qualities of true friendship is to understand and to be understood.\r\nLucius Annaeus Seneca<br/>', NULL, 'public', 'Approved', '2020-04-26 01:48'),
 (20874, 10055, 'The best preparation for tomorrow is doing your best today.\r\nH. Jackson Brown, Jr.<br/>', NULL, 'public', 'Approved', '2020-03-18 00:19'),
 (20875, 10041, 'We love life, not because we are used to living but because we are used to loving.\r\nFriedrich Nietzsche<br/>', NULL, 'private', 'Approved', '2020-03-15 00:37'),
 (20876, 10096, 'Coming together is a beginning; keeping together is progress; working together is success.\r\nEdward Everett Hale<br/>', NULL, 'public', 'Approved', '2020-04-20 02:28'),
@@ -1603,10 +1624,10 @@ INSERT INTO `post_details` (`post_id`, `user_id`, `post_text`, `post_image`, `po
 (21205, 10148, '“You don’t have to find the right reasons to leave the wrong love.”\r\n-Healer-', NULL, 'public', 'Approved', '2020-02-23 07:13'),
 (21206, 10193, 'Happiness resides not in possessions, and not in gold, happiness dwells in the soul.\r\nDemocritus', NULL, 'public', 'Approved', '2020-02-20 04:42'),
 (21207, 10187, '“Keep shining beautiful one. The world needs your light.”', NULL, 'private', 'Approved', '2020-02-28 01:52'),
-(21208, 10194, 'The secret of getting ahead is getting started.\r\nMark Twain', NULL, 'public', 'Approved', '2020-02-30 08:12');
-INSERT INTO `post_details` (`post_id`, `user_id`, `post_text`, `post_image`, `post_type`, `post_status`, `post_time`) VALUES
+(21208, 10194, 'The secret of getting ahead is getting started.\r\nMark Twain', NULL, 'public', 'Approved', '2020-02-30 08:12'),
 (21209, 10190, '“I never knew I could feel so much pain, and yet be so in love with the person causing it.”', NULL, 'public', 'Pending', '2020-02-17 09:40'),
-(21210, 10064, 'If you cannot do great things, do small things in a great way.\r\nNapoleon Hill', NULL, 'public', 'Approved', '2020-02-12 04:27'),
+(21210, 10064, 'If you cannot do great things, do small things in a great way.\r\nNapoleon Hill', NULL, 'public', 'Approved', '2020-02-12 04:27');
+INSERT INTO `post_details` (`post_id`, `user_id`, `post_text`, `post_image`, `post_type`, `post_status`, `post_time`) VALUES
 (21211, 10101, 'There is nothing permanent except change.\r\nHeraclitus', NULL, 'public', 'Approved', '2020-02-15 05:52'),
 (21212, 10046, '“Sometimes I wonder if your wandering thoughts wander about me.”\r\n-perry poetry-', NULL, 'public', 'Approved', '2020-02-31 06:16'),
 (21213, 10169, 'You can\'t blame gravity for falling in love.\r\nAlbert Einstein', NULL, 'private', 'Approved', '2020-02-24 01:30'),
@@ -1712,7 +1733,9 @@ INSERT INTO `post_details` (`post_id`, `user_id`, `post_text`, `post_image`, `po
 (21313, 10295, 'Every year, i took a holiday. I went to Florence, there\'s this cafe, on the banks of Arno. Every fine evening, i\'d sit there and order a Fernet Branca. I had that fantasy, that i would look across the tables and i\'d see you there, with a wife and may be a couple of kids. You wouldn\'t say anything to me , nor me to you.I never wanted you to come back to Gotham. I always knew there was nothing here for you, except pain and tragedy. And i wanted something more for you than that. I still do.', NULL, 'public', 'Approved', '2020-05-08 10:05'),
 (21314, 10271, 'There was a little boy sitting in a barber shop beside me. All a sudden the barber asked me to see a funny thing and addressing the boy foolish as a game he offered a $5 or a $1 note to the boy. Foolishly the boy took $1 and barber started laughing on the fact like every times. I found the boy eating ice cream afterwards. I asked why he had took that $1 bill instead of $5, he replied \"Whenever i\'ll take that $5, the game will be stopped\".', NULL, 'public', 'Approved', '2020-05-09 09:05'),
 (21315, 10002, 'testing post', NULL, 'public', 'Approved', '2020-05-16 05:08'),
-(21316, 10002, 'test 1 2 3', NULL, 'public', 'Approved', '2020-05-17 05:13');
+(21316, 10002, 'test 1 2 3', NULL, 'public', 'Approved', '2020-05-17 05:13'),
+(21317, 10002, 'testing post at 5/18/2020', NULL, 'public', 'Approved', '2020-05-17 23:05'),
+(21318, 10002, 'test again', NULL, 'public', 'Approved', '2020-05-19 06:37');
 
 -- --------------------------------------------------------
 
@@ -1764,7 +1787,7 @@ CREATE TABLE `user_details` (
 
 INSERT INTO `user_details` (`user_id`, `first_name`, `last_name`, `phone`, `gender`, `birthdate`, `bio`, `website`, `address`, `image`, `user_type`, `account_status`) VALUES
 (10001, 'Jami', 'Joy', '01715872336', 'male', '31/12/1990', 'Hi, I am Jami Joy.', 'www.jamijoy.com', '35/A, Bashundhara, Dhaka: 1220', NULL, 'account.manager', 'Activated'),
-(10002, 'Estiak', 'Ahmed', '01766461991', 'male', '28/02/1991', 'Hi, I am post manager', 'www.estiak.com', '40-C, gulsan, dhaka:1211', 'pcm.png', 'post.manager', 'Activated'),
+(10002, 'Estiak', 'Ahmed', '01766461991', 'male', '28/02/1991', 'Hi, I am post manager', 'www.estiak.com', '40-C, gulsan, dhaka:1220', 'pcm.png', 'post.manager', 'Activated'),
 (10003, 'Md', 'Nahian', '01975897554', 'male', '31/01/1990', 'hello from Nahian.', 'www.nahian.com', '12/C, Gulsan, Dhaka: 1201', NULL, 'user', 'Activated'),
 (10007, 'Kalam', 'Salam', '0195345348', 'male', '2020-04-22', 'Hii, I am Kalam', NULL, '31 road Kapasia, Chandpur.', NULL, 'account.manager', 'Activated'),
 (10008, 'Jahid', 'Rana', '01999611986', 'male', '1994-06-17', 'Rana from Barisal', 'www.amarbarisal.net', 'choukath, Barisal.', NULL, 'user', 'Deactivated'),
@@ -2137,7 +2160,7 @@ CREATE TABLE `user_login` (
 
 INSERT INTO `user_login` (`user_id`, `username`, `email`, `password`) VALUES
 (10001, 'acm', 'acm@gmail.com', 'acm'),
-(10002, 'pcm', 'estiak@gmail.com', '12345'),
+(10002, 'pcm', 'estiak@gmail.com', 'pcm'),
 (10003, 'user', 'user@gmail.com', 'user'),
 (10007, 'salam', 'salam@gmail.com', 'salam'),
 (10008, 'rana', 'jahid@yahoo.com', 'rana'),
@@ -2459,6 +2482,13 @@ ALTER TABLE `post_comment`
   ADD KEY `user_id` (`user_id`);
 
 --
+-- Indexes for table `post_comments`
+--
+ALTER TABLE `post_comments`
+  ADD KEY `post_id` (`post_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `post_details`
 --
 ALTER TABLE `post_details`
@@ -2508,13 +2538,13 @@ ALTER TABLE `user_login`
 -- AUTO_INCREMENT for table `message_details`
 --
 ALTER TABLE `message_details`
-  MODIFY `message_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1107;
+  MODIFY `message_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1108;
 
 --
 -- AUTO_INCREMENT for table `post_details`
 --
 ALTER TABLE `post_details`
-  MODIFY `post_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21317;
+  MODIFY `post_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21319;
 
 --
 -- AUTO_INCREMENT for table `user_login`

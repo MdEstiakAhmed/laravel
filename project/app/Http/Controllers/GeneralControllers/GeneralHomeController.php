@@ -38,7 +38,7 @@ class GeneralHomeController extends Controller
 						return redirect()->route('AcmHome.Index');
 					}
 					else if($user_type == json_encode("user")){
-						return "set your route for user home";
+						return redirect()->route('userHome.index');
 					}
 					else{
 						return redirect('/');
@@ -56,7 +56,7 @@ class GeneralHomeController extends Controller
 					return redirect()->route('AcmHome.Index');
 				}
 				else if($user_type == json_encode("user")){
-					return "set your route for user home";
+					return redirect()->route('userHome.index');
 				}
 				else{
 					return redirect('/');
