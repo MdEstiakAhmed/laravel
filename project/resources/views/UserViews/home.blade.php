@@ -195,7 +195,7 @@
 		   <a class="dropdown-item" href="#"><span>New Story</span></a> 
 		   <div class="dropdown-divider"></div>
 		   <a class="dropdown-item" href="/user/{{$login->username}}"><span>Profile</span></a> 
-		   <a class="dropdown-item" href="/user/{{$login->username}}/settings"><span>Settings</span></a> 
+		   <a class="dropdown-item" href="/user/{{$login->username}}/settings">Settings</a> 
 		   <a class="dropdown-item" href="#">Need help?</a> 
 		   <div class="dropdown-divider"></div>
 		   <a class="dropdown-item" href="/logout">Sign out</a>
