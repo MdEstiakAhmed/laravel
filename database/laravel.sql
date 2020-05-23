@@ -2163,7 +2163,7 @@ CREATE TABLE `user_login` (
 
 INSERT INTO `user_login` (`user_id`, `username`, `email`, `password`) VALUES
 (10001, 'acm', 'acm@gmail.com', 'acm'),
-(10002, 'pcm', 'estiak@gmail.com', '12345'),
+(10002, 'pcm', 'pcm@gmail.com', 'pcm'),
 (10003, 'user', 'user@gmail.com', 'user'),
 (10007, 'salam', 'salam@gmail.com', 'salam'),
 (10008, 'rana', 'jahid@yahoo.com', 'rana'),
