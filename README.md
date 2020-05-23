@@ -6,8 +6,8 @@
 2. post manager
 3. account manager
 
-user type | username | email | password
------------- | ------------- | -------------
-user | user | user@gmail.com | user
-post manager | pcm | pcm@gmail.com | pcm
-account manager | acm | acm@gmail.com | acm
+| user type | username | email | password |
+| ------------ | ------------- | ------------- | ------------- |
+| user | user | user@gmail.com | user |
+| post manager | pcm | pcm@gmail.com | pcm |
+| account manager | acm | acm@gmail.com | acm |
